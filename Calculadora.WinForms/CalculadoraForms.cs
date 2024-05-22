@@ -12,13 +12,36 @@ namespace Calculadora.WinForms
         {
             decimal primeimoNumero = Convert.ToDecimal(txtPrimeiroNumero.Text);
             decimal segundoNumero = Convert.ToDecimal(txtSegundoNumero.Text);
-            decimal resutado = 0;
+            decimal resultado = 0;
+            string descricaoOperacao = "";
 
             if (rdbAdicao.Checked)
             {
-                resutado = primeimoNumero + segundoNumero;
+                resultado = primeimoNumero + segundoNumero;
+                descricaoOperacao = primeimoNumero + " + " + segundoNumero + " = " + resultado;
             }
-            lblResultado.Text = resutado.ToString();
+
+            else if (rdbSubtracao.Checked)
+            {
+                resultado = primeimoNumero - segundoNumero;
+                descricaoOperacao = primeimoNumero + " - " + segundoNumero + " = " + resultado;
+            }
+
+            else if (rdbMultiplicacao.Checked)
+            {
+                resultado = primeimoNumero * segundoNumero;
+                descricaoOperacao = primeimoNumero + " * " + segundoNumero + " = " + resultado;
+            }
+
+            else if (rdbDivisao.Checked)
+            {
+                resultado = primeimoNumero / segundoNumero;
+                descricaoOperacao = primeimoNumero + " / " + segundoNumero + " = " + resultado;
+            }
+
+            lblResultado.Text = resultado.ToString();
+            listHitoricooperacoes.Items.Add(descricaoOperacao);
+
         }
     }
 }
